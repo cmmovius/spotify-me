@@ -36,8 +36,8 @@ function searchByTrack(keyword) {
 var showInfo = function(response) {
   console.log(response.artists.items.length);
   for (var i = 0; i < response.artists.items.length; i++) {
-    $('#results').append("<li class = info></li>")
-    $('.info').append(response.artists.items[i].name)
-
+    var li = $("<li class = info></li>");
+    li.append(response.artists.items[i].name);
+    $('#results').append(li);
   }
 }
