@@ -4,7 +4,11 @@ $(document).ready( function() {
   $("#submit").on("click", function(event){
     event.preventDefault();
     console.log("clicked!");
-    searchByArtist($("input[name='keyword']").val());
+    if ($("#search-type option:selected").val() == "artist") {
+      searchByArtist($("input[name='keyword']").val());
+    } else {
+      console.log($("input[name='keyword']").val());
+    }
   });
 });
 
