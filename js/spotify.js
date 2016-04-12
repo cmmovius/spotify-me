@@ -19,8 +19,8 @@ function searchByArtist(keyword) {
     dataType: "json"
   }).done ( function(response){
     console.log(response);
-    // call giphy function below to append gif's
-    // giphy(response);
+    // call show function below to append names
+    showInfo(response);
   }).fail ( function (){
     console.log("fail");
   }).always( function(){
@@ -31,4 +31,13 @@ function searchByArtist(keyword) {
 
 function searchByTrack(keyword) {
   var url = 'https://api.spotify.com/v1/search?q='+keyword+'&type=track';
+}
+
+var showInfo = function(response) {
+  console.log(response.artists.items.length);
+  for (var i = 0; i < response.artists.items.length; i++) {
+    $('#results').append("<li class = info></li>")
+    $('.info').append(response.artists.items[i].name)
+
+  }
 }
