@@ -13,6 +13,19 @@ function searchByArtist(keyword) {
   console.log(keyword);
   var url = 'https://api.spotify.com/v1/search?q='+keyword+'&type=artist';
   console.log(url);
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: "json"
+  }).done ( function(response){
+    console.log(response);
+    // call giphy function below to append gif's
+    // giphy(response);
+  }).fail ( function (){
+    console.log("fail");
+  }).always( function(){
+    console.log("Something happens");
+  });
 }
 
 
